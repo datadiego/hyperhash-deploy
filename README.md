@@ -6,8 +6,11 @@ Este repositorio contiene un `docker compose` para levantar el servidor en cualq
 
 ## Instalación
 
-Para usar Hyperhash, necesitas tener instalado `docker` y `docker-compose` en tu máquina, ademas de `certbot` si quieres usar HTTPS.
+Para usar Hyperhash, necesitas tener instalado `docker` y `docker-compose` en tu máquina.
 
-1. Clona el repositorio
-2. Modifica el archivo `docker-compose.yml` con tus preferencias:
-    
+```bash
+git clone
+cd hyperhash-deploy
+chmod +x launch.sh
+./launch.sh
+```
