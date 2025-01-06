@@ -15,8 +15,9 @@ services:
       - ./app-db:/app/db
     command: >
       sh -c "
-      cp -r /usr/src/app/db/db.sqlite /app/db/db.sqlite &&
-      npm run start
+      node /usr/src/app/db/init.js &&
+      cp /usr/src/app/db/db.sqlite /app/db/db.sqlite &&
+      node /usr/src/app/index.js
       "
   nginx:
     image: nginx:latest
