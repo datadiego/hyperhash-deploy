@@ -18,7 +18,10 @@ services:
       if [ ! -f /app/db/db.sqlite ]; then
         node /usr/src/app/db/init.js &&
         cp /usr/src/app/db/db.sqlite /app/db/db.sqlite
-      fi &&
+      else
+        cp /app/db/db.sqlite /usr/src/app/db/db.sqlite
+      fi
+      &&
       node /usr/src/app/server.js
       "
   nginx:
