@@ -17,7 +17,7 @@ services:
       sh -c "
       node /usr/src/app/db/init.js &&
       cp /usr/src/app/db/db.sqlite /app/db/db.sqlite &&
-      node /usr/src/app/index.js
+      node /usr/src/app/server.js
       "
   nginx:
     image: nginx:latest
