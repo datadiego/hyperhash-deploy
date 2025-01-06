@@ -15,8 +15,10 @@ services:
       - ./app-db:/app/db
     command: >
       sh -c "
-      node /usr/src/app/db/init.js &&
-      cp /usr/src/app/db/db.sqlite /app/db/db.sqlite &&
+      if [ ! -f /app/db/db.sqlite ]; then
+        node /usr/src/app/db/init.js &&
+        cp /usr/src/app/db/db.sqlite /app/db/db.sqlite
+      fi &&
       node /usr/src/app/server.js
       "
   nginx:
