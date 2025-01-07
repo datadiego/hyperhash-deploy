@@ -13,17 +13,6 @@ services:
       - COOKIE_SECRET=secret
     volumes:
       - ./app-db:/app/db
-    command: >
-      sh -c "
-      if [ ! -f /app/db/db.sqlite ]; then
-        node /usr/src/app/db/init.js &&
-        cp /usr/src/app/db/db.sqlite /app/db/db.sqlite
-      else
-        cp /app/db/db.sqlite /usr/src/app/db/db.sqlite
-      fi
-      &&
-      node /usr/src/app/server.js
-      "
   nginx:
     image: nginx:latest
     container_name: nginx
@@ -39,7 +28,3 @@ services:
 networks:
   webnet:
     driver: bridge
-
-volumes:
-  app-db:
-    driver: local
